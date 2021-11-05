@@ -1,0 +1,28 @@
+<PayRoll xmlns="http://www.hogia.se/XMLSchemas/pa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <FileInfo>
+        <companyName>Hogia Test AB</companyName>
+        <softwareProduct>Leanlink</softwareProduct>
+        <createdBy>Jon</createdBy>
+        <createdDate>2021-11-05</createdDate>
+        <message>Meddelande 1</message>
+    </FileInfo>
+    <PayTypeInstruction>
+        <employmentId>101</employmentId>
+        <payTypeCode>L</payTypeCode>
+        <payTypeId>10</payTypeId>
+        <quantity>1.1</quantity>
+        <project>project</project>
+        <note>note</note>
+        <periodStartDate>2021-11-05</periodStartDate>
+        <periodEndDate>2021-11-06</periodEndDate>
+        <periodStartTime>19:00:00</periodStartTime>
+        <periodEndTime>02:30:00</periodEndTime>
+        <costCentre>cost centre</costCentre>
+        <extent>extent</extent>
+        <childName>child name</childName>
+        <costUnit>cost unit</costUnit>
+        <amount>2.2</amount>
+        <price>100</price>
+        <personalIdentityNumber>personal identity number</personalIdentityNumber>
+    </PayTypeInstruction>
+</PayRoll>

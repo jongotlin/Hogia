@@ -10,8 +10,8 @@ class PayTypeInstruction
     private ?float $quantity = null;
     private ?string $project = null;
     private ?string $note = null;
-    private ?\DateTimeImmutable $periodStartDate = null;
-    private ?\DateTimeImmutable $periodEndDate = null;
+    private ?\DateTimeInterface $periodStartDate = null;
+    private ?\DateTimeInterface $periodEndDate = null;
     private bool $withTime = false;
     private ?string $costCentre = null;
     private ?string $extent = null;
@@ -73,22 +73,22 @@ class PayTypeInstruction
         $this->note = $note;
     }
 
-    public function getPeriodStartDate(): ?\DateTimeImmutable
+    public function getPeriodStartDate(): ?\DateTimeInterface
     {
         return $this->periodStartDate;
     }
 
-    public function setPeriodStartDate(?\DateTimeImmutable $periodStartDate): void
+    public function setPeriodStartDate(?\DateTimeInterface $periodStartDate): void
     {
         $this->periodStartDate = $periodStartDate;
     }
 
-    public function getPeriodEndDate(): ?\DateTimeImmutable
+    public function getPeriodEndDate(): ?\DateTimeInterface
     {
         return $this->periodEndDate;
     }
 
-    public function setPeriodEndDate(?\DateTimeImmutable $periodEndDate): void
+    public function setPeriodEndDate(?\DateTimeInterface $periodEndDate): void
     {
         $this->periodEndDate = $periodEndDate;
     }

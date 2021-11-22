@@ -19,6 +19,9 @@ StartTid=#08:00#
 SlutDag=#2021-11-03#
 SlutTid=#10:30#
 Längd=#26:30#
+Pslut
+Pstart
+Typ="Personschema"
 Anställningsnummer=456
 StartDatum=#2021-12-01#
 Längd=1

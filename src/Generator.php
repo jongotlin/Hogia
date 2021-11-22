@@ -111,8 +111,6 @@ Filhuvud
 Typ="Personschema"
 SkapadAv="%s ;Standard"
 DatumTid=#%s#
-Pstart
-Typ="Personschema"
 
 TXT;
         $string = sprintf(
@@ -122,6 +120,8 @@ TXT;
         );
         foreach ($personSchedules as $personSchedule) {
             $string .= <<<TXT
+Pstart
+Typ="Personschema"
 Anställningsnummer=%s
 StartDatum=#%s#
 Längd=%s
@@ -154,8 +154,8 @@ TXT;
                 );
 
             }
+            $string .= 'Pslut' . PHP_EOL;
         }
-        $string .= 'Pslut' . PHP_EOL;
 
         return $string;
     }

@@ -86,7 +86,10 @@ class Generator
                 $payTypeInstructionElement->appendChild($hogiaDocument->createElement('amount', $payTypeInstruction->getAmount()));
             }
             if ($payTypeInstruction->getPrice() !== null) {
-                $payTypeInstructionElement->appendChild($hogiaDocument->createElement('price', $payTypeInstruction->getPrice()));
+                $payTypeInstructionElement->appendChild($hogiaDocument->createElement(
+                    'price',
+                    round($payTypeInstruction->getPrice() / 100, 2)
+                ));
             }
             if ($payTypeInstruction->getPersonalIdentityNumber()) {
                 $payTypeInstructionElement->appendChild($hogiaDocument->createElement('personalIdentityNumber', $payTypeInstruction->getPersonalIdentityNumber()));

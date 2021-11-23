@@ -158,6 +158,9 @@ class PayTypeInstruction
         return $this->price;
     }
 
+    /**
+     * @param int|null $price in öre
+     */
     public function setPrice(?int $price): void
     {
         $this->price = $price;

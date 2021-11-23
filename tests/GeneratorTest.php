@@ -32,7 +32,7 @@ final class GeneratorTest extends \PHPUnit\Framework\TestCase
         $payTypeInstruction->setChildName('child name');
         $payTypeInstruction->setCostUnit('cost unit');
         $payTypeInstruction->setAmount(2.2);
-        $payTypeInstruction->setPrice(100);
+        $payTypeInstruction->setPrice(10000);
         $payTypeInstruction->setPersonalIdentityNumber('personal identity number');
 
         $hogiaDocument = $generator->createHogiaDocument($fileInfo, [$payTypeInstruction]);

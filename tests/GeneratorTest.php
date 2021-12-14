@@ -1,18 +1,19 @@
 <?php
 
 use JGI\Hogia\Generator;
+use JGI\Hogia\HogiaDocument;
 use JGI\Hogia\Model\FileInfo;
 use JGI\Hogia\Model\PayTypeInstruction;
+use JGI\Hogia\Model\Period;
+use JGI\Hogia\Model\PersonSchedule;
 
 final class GeneratorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
      */
-    public function shouldReturnHogiaDocument()
+    public function it_returns_payment_document()
     {
-        $generator = new Generator();
-
         $fileInfo = new FileInfo();
         $fileInfo->setCompanyName('Hogia Test AB');
         $fileInfo->setSoftwareProduct('Leanlink');
@@ -35,8 +36,39 @@ final class GeneratorTest extends \PHPUnit\Framework\TestCase
         $payTypeInstruction->setPrice(10000);
         $payTypeInstruction->setPersonalIdentityNumber('personal identity number');
 
-        $hogiaDocument = $generator->createHogiaDocument($fileInfo, [$payTypeInstruction]);
-        $this->assertInstanceOf(\JGI\Hogia\HogiaDocument::class, $hogiaDocument);
+        $hogiaDocument = (new Generator())->createHogiaDocument($fileInfo, [$payTypeInstruction]);
+        $this->assertInstanceOf(HogiaDocument::class, $hogiaDocument);
         $this->assertXmlStringEqualsXmlFile(__DIR__ . '/expected.xml', $hogiaDocument->saveXML());
+    }
+
+    /**
+     * @test
+     */
+    public function it_returns_person_schedule_document()
+    {
+        $fileInfo = new FileInfo();
+        $fileInfo->setSoftwareProduct('Leanlink');
+        $fileInfo->setCreatedAt(new \DateTime('2021-11-17 12:14:03'));
+
+        $personSchedule1 = new PersonSchedule(
+            '123',
+            [
+                new Period(new \DateTimeImmutable('2021-11-01 08:00:00'), new \DateTimeImmutable('2021-11-01 17:00:00')),
+                new Period(new \DateTimeImmutable('2021-11-02 08:00:00'), new \DateTimeImmutable('2021-11-03 10:30:00')),
+            ]
+        );
+
+        $personSchedule2 = new PersonSchedule(
+            '456',
+            [
+                new Period(new \DateTimeImmutable('2021-12-01 08:00:00'), new \DateTimeImmutable('2021-12-01 08:01:00')),
+            ]
+        );
+
+
+        $result = (new Generator())->createPersonSchedules($fileInfo, [$personSchedule1, $personSchedule2]);
+
+        $this->assertIsString($result);
+        $this->assertStringEqualsFile(__DIR__ . '/person-schedule.txt', $result);
     }
 }

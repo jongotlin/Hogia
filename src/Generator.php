@@ -4,6 +4,7 @@ namespace JGI\Hogia;
 
 use JGI\Hogia\Model\FileInfo;
 use JGI\Hogia\Model\PayTypeInstruction;
+use JGI\Hogia\Model\PersonSchedule;
 
 class Generator
 {
@@ -101,5 +102,64 @@ class Generator
         $hogiaDocument->appendChild($root);
 
         return $hogiaDocument;
+    }
+
+    /**
+     * @param PersonSchedule[] $personSchedules
+     */
+    public function createPersonSchedules(FileInfo $fileInfo, array $personSchedules): string
+    {
+        $string = <<<TXT
+Filhuvud
+Typ="Personschema"
+SkapadAv="%s ;Standard"
+DatumTid=#%s#
+
+TXT;
+        $string = sprintf(
+            $string,
+            $fileInfo->getSoftwareProduct(),
+            $fileInfo->getCreatedAt()->format('Y-m-d H:i:s')
+        );
+        foreach ($personSchedules as $personSchedule) {
+            $string .= <<<TXT
+Pstart
+Typ="Personschema"
+Anställningsnummer=%s
+StartDatum=#%s#
+Längd=%s
+
+TXT;
+            $string = sprintf(
+                $string,
+                $personSchedule->getEmploymentId(),
+                $personSchedule->getFirstPeriod()->getStart()->format('Y-m-d'),
+                count($personSchedule->getPeriods())
+            );
+
+            foreach ($personSchedule->getPeriods() as $period) {
+                $string .= <<<TXT
+Arbetspass
+StartDag=#%s#
+StartTid=#%s#
+SlutDag=#%s#
+SlutTid=#%s#
+Längd=#%s#
+
+TXT;
+                $string = sprintf(
+                    $string,
+                    $period->getStart()->format('Y-m-d'),
+                    $period->getStart()->format('H:i'),
+                    $period->getEnd()->format('Y-m-d'),
+                    $period->getEnd()->format('H:i'),
+                    $period->getLengthString()
+                );
+
+            }
+            $string .= 'Pslut' . PHP_EOL;
+        }
+
+        return $string;
     }
 }

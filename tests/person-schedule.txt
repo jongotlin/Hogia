@@ -1,0 +1,34 @@
+Filhuvud
+Typ="Personschema"
+SkapadAv="Leanlink ;Standard"
+DatumTid=#2021-11-17 12:14:03#
+Pstart
+Typ="Personschema"
+Anställningsnummer=123
+StartDatum=#2021-11-01#
+Längd=2
+Arbetspass
+StartDag=#2021-11-01#
+StartTid=#08:00#
+SlutDag=#2021-11-01#
+SlutTid=#17:00#
+Längd=#09:00#
+Arbetspass
+StartDag=#2021-11-02#
+StartTid=#08:00#
+SlutDag=#2021-11-03#
+SlutTid=#10:30#
+Längd=#26:30#
+Pslut
+Pstart
+Typ="Personschema"
+Anställningsnummer=456
+StartDatum=#2021-12-01#
+Längd=1
+Arbetspass
+StartDag=#2021-12-01#
+StartTid=#08:00#
+SlutDag=#2021-12-01#
+SlutTid=#08:01#
+Längd=#00:01#
+Pslut

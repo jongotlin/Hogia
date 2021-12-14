@@ -12,7 +12,7 @@ class Generator
     {
         $hogiaDocument = new HogiaDocument();
 
-        $hogiaDocument->encoding = 'utf-8';
+        $hogiaDocument->encoding = 'ISO-8859-1';
         $hogiaDocument->xmlVersion = '1.0';
         $hogiaDocument->formatOutput = true;
 
@@ -84,7 +84,10 @@ class Generator
                 $payTypeInstructionElement->appendChild($hogiaDocument->createElement('costUnit', $payTypeInstruction->getCostUnit()));
             }
             if ($payTypeInstruction->getAmount() !== null) {
-                $payTypeInstructionElement->appendChild($hogiaDocument->createElement('amount', $payTypeInstruction->getAmount()));
+                $payTypeInstructionElement->appendChild($hogiaDocument->createElement(
+                    'amount',
+                    round($payTypeInstruction->getAmount() / 100, 2)
+                ));
             }
             if ($payTypeInstruction->getPrice() !== null) {
                 $payTypeInstructionElement->appendChild($hogiaDocument->createElement(

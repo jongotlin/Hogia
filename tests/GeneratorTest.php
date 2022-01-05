@@ -32,7 +32,7 @@ final class GeneratorTest extends \PHPUnit\Framework\TestCase
         $payTypeInstruction->setExtent('extent');
         $payTypeInstruction->setChildName('child name');
         $payTypeInstruction->setCostUnit('cost unit');
-        $payTypeInstruction->setAmount(2.2);
+        $payTypeInstruction->setAmount(220);
         $payTypeInstruction->setPrice(10000);
         $payTypeInstruction->setPersonalIdentityNumber('personal identity number');
 

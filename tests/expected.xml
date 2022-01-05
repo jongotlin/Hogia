@@ -11,6 +11,7 @@
         <payTypeCode>L</payTypeCode>
         <payTypeId>10</payTypeId>
         <quantity>1.1</quantity>
+        <price>100</price>
         <project>project</project>
         <note>note</note>
         <periodStartDate>2021-11-05</periodStartDate>
@@ -22,7 +23,6 @@
         <childName>child name</childName>
         <costUnit>cost unit</costUnit>
         <amount>2.2</amount>
-        <price>100</price>
         <personalIdentityNumber>personal identity number</personalIdentityNumber>
     </PayTypeInstruction>
 </PayRoll>

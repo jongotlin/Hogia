@@ -65,8 +65,17 @@ final class GeneratorTest extends \PHPUnit\Framework\TestCase
             ]
         );
 
+        $personSchedule3 = new PersonSchedule(
+            '789',
+            [
+                new Period(new \DateTimeImmutable('2021-12-10 08:00:00'), new \DateTimeImmutable('2021-12-10 08:01:00')),
+                new Period(new \DateTimeImmutable('2021-12-12 08:00:00'), new \DateTimeImmutable('2021-12-12 08:01:00')),
+            ],
+            3
+        );
 
-        $result = (new Generator())->createPersonSchedules($fileInfo, [$personSchedule1, $personSchedule2]);
+
+        $result = (new Generator())->createPersonSchedules($fileInfo, [$personSchedule1, $personSchedule2, $personSchedule3]);
 
         $this->assertIsString($result);
         $this->assertStringEqualsFile(__DIR__ . '/person-schedule.txt', $result);

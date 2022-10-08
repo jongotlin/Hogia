@@ -6,7 +6,7 @@ Pstart
 Typ="Personschema"
 Anställningsnummer=123
 StartDatum=#2021-11-01#
-Längd=2
+Längd=3
 Arbetspass
 StartDag=#2021-11-01#
 StartTid=#08:00#

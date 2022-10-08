@@ -137,7 +137,7 @@ TXT;
                 $string,
                 $personSchedule->getEmploymentId(),
                 $personSchedule->getFirstPeriod()->getStart()->format('Y-m-d'),
-                count($personSchedule->getPeriods())
+                $personSchedule->getLength()
             );
 
             foreach ($personSchedule->getPeriods() as $period) {

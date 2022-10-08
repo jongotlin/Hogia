@@ -54,7 +54,7 @@ final class GeneratorTest extends \PHPUnit\Framework\TestCase
             '123',
             [
                 new Period(new \DateTimeImmutable('2021-11-01 08:00:00'), new \DateTimeImmutable('2021-11-01 17:00:00')),
-                new Period(new \DateTimeImmutable('2021-11-02 08:00:00'), new \DateTimeImmutable('2021-11-03 10:30:00')),
+                new Period(new \DateTimeImmutable('2021-11-03 08:00:00'), new \DateTimeImmutable('2021-11-04 10:30:00')),
             ],
             3
         );

@@ -14,9 +14,9 @@ SlutDag=#2021-11-01#
 SlutTid=#17:00#
 Längd=#09:00#
 Arbetspass
-StartDag=#2021-11-02#
+StartDag=#2021-11-03#
 StartTid=#08:00#
-SlutDag=#2021-11-03#
+SlutDag=#2021-11-04#
 SlutTid=#10:30#
 Längd=#26:30#
 Pslut
